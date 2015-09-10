@@ -94,7 +94,7 @@ class Field_V5 extends \acf_field {
 	/**
 	 * Enqueue field scripts.
 	 */
-	function input_admin_enqueue_scripts() {
+	public function input_admin_enqueue_scripts() {
 		wp_enqueue_script( 'simcal-admin-add-calendar' );
 	}
 
@@ -107,7 +107,7 @@ class Field_V5 extends \acf_field {
 	 *
 	 * @return string
 	 */
-	function load_value( $value, $post_id, $field ) {
+	public function load_value( $value, $post_id, $field ) {
 		return is_numeric( $value ) ? intval( $value ) : '';
 	}
 
@@ -120,7 +120,7 @@ class Field_V5 extends \acf_field {
 	 *
 	 * @return string
 	 */
-	function format_value( $value, $post_id, $field ) {
+	public function format_value( $value, $post_id, $field ) {
 
 		$html = '';
 
@@ -130,7 +130,7 @@ class Field_V5 extends \acf_field {
 
 			if ( $calendar instanceof \SimpleCalendar\Abstracts\Calendar ) {
 				ob_start();
-				$calendar->html();
+				do_shortcode( '[calendar id="' . $value . '"]' );
 				$html = ob_get_clean();
 			}
 		}

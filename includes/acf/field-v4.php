@@ -32,7 +32,7 @@ class Field_V4 extends \acf_field {
 	/**
 	 * Setup field data.
 	 */
-	function __construct() {
+	public function __construct() {
 
 		$this->name     = 'simple_calendar';
 		$this->label    = 'Simple Calendar';
@@ -48,14 +48,16 @@ class Field_V4 extends \acf_field {
 			'dir'     => apply_filters('acf/helpers/get_dir', __FILE__),
 			'version' => '1.0.0'
 		);
+
 	}
+
 
 	/**
 	 * Create options.
 	 *
 	 * @param $field
 	 */
-	function create_options( $field ) {
+	public function create_options( $field ) {
 
 		$field = array_merge( $this->defaults, $field );
 		$key = $field['name'];
@@ -91,7 +93,7 @@ class Field_V4 extends \acf_field {
 	 *
 	 * @param $field
 	 */
-	function create_field( $field ) {
+	public function create_field( $field ) {
 
 		echo '<select id="' . $field['id'] . '" class="' . $field['class'] . ' fa-select2-field" name="' . $field['name'] . '" >';
 
@@ -115,7 +117,7 @@ class Field_V4 extends \acf_field {
 	/**
 	 * Enqueue field scripts.
 	 */
-	function input_admin_enqueue_scripts() {
+	public function input_admin_enqueue_scripts() {
 		wp_enqueue_script( 'simcal-admin-add-calendar' );
 	}
 
@@ -128,7 +130,7 @@ class Field_V4 extends \acf_field {
 	 *
 	 * @return string
 	 */
-	function load_value( $value, $post_id, $field ) {
+	public function load_value( $value, $post_id, $field ) {
 		return is_numeric( $value ) ? intval( $value ) : '';
 	}
 
@@ -141,7 +143,7 @@ class Field_V4 extends \acf_field {
 	 *
 	 * @return string
 	 */
-	function format_value_for_api( $value, $post_id, $field ) {
+	public function format_value_for_api( $value, $post_id, $field ) {
 
 		$html = '';
 
@@ -151,7 +153,7 @@ class Field_V4 extends \acf_field {
 
 			if ( $calendar instanceof \SimpleCalendar\Abstracts\Calendar ) {
 				ob_start();
-				$calendar->html();
+				do_shortcode( '[calendar id="' . $value . '"]' );
 				$html = ob_get_clean();
 			}
 		}

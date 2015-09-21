@@ -1,6 +1,9 @@
 <?php
 /**
- * Simple Calendar ACF v5.x
+ * Simple Calendar ACF v5.x field support
+ *
+ * @package    SimpleCalendar/Extensions
+ * @subpackage ACF/v5
  */
 namespace SimpleCalendar\Acf;
 

@@ -7,7 +7,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Parses Google Calendar feeds and displays the events as a calendar grid or list on a page, post or widget.
+Extends Advanced Custom Field (ACF) plugin with a calendar field to display a Simple Calendar plugin events calendar.  
 
 == Description ==
 
@@ -20,10 +20,16 @@ To use this add on you need both Simple Calendar and Advanced Custom Fields inst
 
 This ACF field type is compatible with:
 * Simple Calendar 3.0.0 and up
-* ACF 5.x
-* ACF 4.x
+* ACF 5
+* ACF 4
 
 == Installation ==
+
+You will need both Simple Calendar (3.0.0 and above) and Advanced Custom Fields (either 4.x, 5.x or Pro version) installed and active in your WordPress installation first or this plugin won't do anything. 
+
+Install Simple Calendar ACF by going to the plugins dashboard page and select 'Add New'. Look up for 'Simple Calendar ACF' and install and activate the plugin.
+
+Make sure you have created some calendar with Simple Calendar first, then create a new field with this field extension and Advanced Custom Fields. The new field will be available with a list of calendars to choose from. Use ACF templates to retrieve and display the chosen calendar with functions like `the_field( 'your_field_name' )'`.
 
 == Changelog ==
 

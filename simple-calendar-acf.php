@@ -9,18 +9,16 @@
  * Author:      Moonstone Media
  * Author URI:  http://moonstonemediagroup.com
  *
- * Text Domain: simple-calendar
+ * Text Domain: simple-calendar-acf
  * Domain Path: /languages/
  *
- * @package     SimpleCalendar/ACF
+ * @package     SimpleCalendar/Extensions
+ * @subpackage  ACF
  * @copyright   2014-2015 Moonstone Media/Phil Derksen. All rights reserved.
  */
 
-// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
-}
-
-if ( version_compare( PHP_VERSION, '5.3.0' ) !== - 1 ) {
-	include_once 'includes/acf.php';
+} elseif ( version_compare( PHP_VERSION, '5.3.0' ) !== - 1 ) {
+	include_once 'includes/add-on-acf.php';
 }

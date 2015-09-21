@@ -1,6 +1,9 @@
 <?php
 /**
- * Simple Calendar ACF v4.x
+ * Simple Calendar ACF v4.x field support
+ *
+ * @package    SimpleCalendar/Extensions
+ * @subpackage ACF/v4
  */
 namespace SimpleCalendar\Acf;
 
@@ -44,8 +47,8 @@ class Field_V4 extends \acf_field {
 		parent::__construct();
 
 		$this->settings = array(
-			'path'    => apply_filters('acf/helpers/get_path', __FILE__),
-			'dir'     => apply_filters('acf/helpers/get_dir', __FILE__),
+			'path'    => apply_filters( 'acf/helpers/get_path', __FILE__ ),
+			'dir'     => apply_filters( 'acf/helpers/get_dir', __FILE__ ),
 			'version' => '1.0.0'
 		);
 

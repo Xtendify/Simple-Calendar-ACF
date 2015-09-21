@@ -1,19 +1,21 @@
 <?php
 /**
  * Simple Calendar - Advanced Custom Fields add on.
+ *
+ * @package    SimpleCalendar/Extensions
+ * @subpackage ACF
  */
 namespace SimpleCalendar;
 
 /**
  * Simple Calendar ACF.
  */
-class Acf {
+class Add_On_Acf {
 
 	/**
 	 * Load plugin.
 	 */
 	public function __construct() {
-		load_plugin_textdomain( 'simple-calendar', false, dirname( dirname( plugin_basename(__FILE__) ) ) . '/languages/' );
 		add_action( 'plugins_loaded', array( $this, 'init' ) );
 	}
 
@@ -35,4 +37,4 @@ class Acf {
 
 }
 
-new Acf();
+new Add_On_Acf();

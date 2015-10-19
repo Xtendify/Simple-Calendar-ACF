@@ -1,8 +1,8 @@
 === Simple Calendar - ACF field ===
 Contributors: pderksen, nickyoung87, nekojira
 Tags: simple-calendar, acf, advanced-custom-fields, google-calendar, google, calendar, calendars, event, events, field, custom-field, fields, custom-fields
-Requires at least: 3.9
-Tested up to: 4.3
+Requires at least: 4.0
+Tested up to: 4.3.1
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -30,6 +30,11 @@ You will need both Simple Calendar (3.0.0 and above) and Advanced Custom Fields 
 Install Simple Calendar ACF by going to the plugins dashboard page and select 'Add New'. Look up for 'Simple Calendar ACF' and install and activate the plugin.
 
 Make sure you have created some calendar with Simple Calendar first, then create a new field with this field extension and Advanced Custom Fields. The new field will be available with a list of calendars to choose from. Use ACF templates to retrieve and display the chosen calendar with functions like `the_field( 'your_field_name' )'`.
+
+== Screenshots ==
+
+1. ACF Simple Calendar field type.
+2. The field being rendered in a meta box, with a calender selection.  
 
 == Changelog ==
 

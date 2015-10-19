@@ -18,15 +18,6 @@ nbproject
 # Node
 node_modules
 
-# Bower
-bower_components
-
-# Composer
-/vendor
-
-# Sass
-.sass-cache
-
 # Logging
 *.log
 *.logs
@@ -39,14 +30,7 @@ tmp
 
 ### Build ###
 
-# wordpress.org
-/build
-/release*
-/svn
-
-# ApiGen
-/apidocs
-/docs
+build
 
 ### OS Files ###
 

@@ -13,11 +13,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Advanced Customs Field v5 field.
+ *
+ * @since 1.0.0
  */
 class Field_V5 extends \acf_field {
 
 	/**
 	 * Setup field data.
+	 *
+	 * @since 1.0.0
 	 */
 	public function __construct() {
 
@@ -40,13 +44,13 @@ class Field_V5 extends \acf_field {
 
 		// Allow null option (to choose no calendar).
 		acf_render_field_setting( $field, array(
-			'label'			=> __( 'Allow Null?', 'acf' ),
+			'label'			=> __( 'Allow Null?', 'simple-calendar-acf' ),
 			'instructions'	=> '',
 			'type'			=> 'radio',
 			'name'			=> 'allow_null',
 			'choices'		=> array(
-				1 => __( "Yes", 'acf' ),
-				0 => __( "No", 'acf' ),
+				1 => __( 'Yes', 'simple-calendar-acf' ),
+				0 => __( 'No', 'simple-calendar-acf' ),
 			),
 			'layout'        =>	'horizontal',
 		) );
@@ -104,9 +108,9 @@ class Field_V5 extends \acf_field {
 	/**
 	 * Load value.
 	 *
-	 * @param $value
-	 * @param $post_id
-	 * @param $field
+	 * @param  $value
+	 * @param  $post_id
+	 * @param  $field
 	 *
 	 * @return string
 	 */
@@ -117,9 +121,9 @@ class Field_V5 extends \acf_field {
 	/**
 	 * Format value.
 	 *
-	 * @param $value
-	 * @param $post_id
-	 * @param $field
+	 * @param  $value
+	 * @param  $post_id
+	 * @param  $field
 	 *
 	 * @return string
 	 */

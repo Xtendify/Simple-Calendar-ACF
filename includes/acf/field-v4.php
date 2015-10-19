@@ -13,6 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Advanced Custom Field v5 field.
+ *
+ * @since 1.0.0
  */
 class Field_V4 extends \acf_field {
 
@@ -34,12 +36,14 @@ class Field_V4 extends \acf_field {
 
 	/**
 	 * Setup field data.
+	 *
+	 * @since 1.0.0
 	 */
 	public function __construct() {
 
 		$this->name     = 'simple_calendar';
 		$this->label    = 'Simple Calendar';
-		$this->category = __( "Content", 'acf' );
+		$this->category = __( "Content", 'simple-calendar-acf' );
 		$this->defaults = array(
 			'allow_null' => 1,
 		);
@@ -58,6 +62,8 @@ class Field_V4 extends \acf_field {
 	/**
 	 * Create options.
 	 *
+	 * @since 1.0.0
+	 *
 	 * @param $field
 	 */
 	public function create_options( $field ) {
@@ -68,7 +74,7 @@ class Field_V4 extends \acf_field {
 		?>
 		<tr class="field_option field_option_<?php echo $this->name; ?>">
 			<td class="label">
-				<label><?php _e( "Allow Null?", 'acf' ); ?></label>
+				<label><?php _e( 'Allow Null?', 'simple-calendar-acf' ); ?></label>
 			</td>
 			<td>
 				<?php
@@ -78,8 +84,8 @@ class Field_V4 extends \acf_field {
 					'name'	    => 'fields['.$key.'][allow_null]',
 					'value'     => $field['allow_null'],
 					'choices'	=> array(
-						1 => __( "Yes", 'acf' ),
-						0 => __( "No", 'acf' ),
+						1 => __( 'Yes', 'simple-calendar-acf' ),
+						0 => __( 'No', 'simple-calendar-acf' ),
 					),
 					'layout'    => 'horizontal',
 				) );
@@ -93,6 +99,8 @@ class Field_V4 extends \acf_field {
 
 	/**
 	 * Create field.
+	 *
+	 * @since 1.0.0
 	 *
 	 * @param $field
 	 */
@@ -119,6 +127,8 @@ class Field_V4 extends \acf_field {
 
 	/**
 	 * Enqueue field scripts.
+	 *
+	 * @since 1.0.0
 	 */
 	public function input_admin_enqueue_scripts() {
 		wp_enqueue_script( 'simcal-admin-add-calendar' );
@@ -127,9 +137,11 @@ class Field_V4 extends \acf_field {
 	/**
 	 * Load value.
 	 *
-	 * @param $value
-	 * @param $post_id
-	 * @param $field
+	 * @since  1.0.0
+	 *
+	 * @param  $value
+	 * @param  $post_id
+	 * @param  $field
 	 *
 	 * @return string
 	 */
@@ -140,9 +152,11 @@ class Field_V4 extends \acf_field {
 	/**
 	 * Format value for API.
 	 *
-	 * @param $value
-	 * @param $post_id
-	 * @param $field
+	 * @since  1.0.0
+	 *
+	 * @param  $value
+	 * @param  $post_id
+	 * @param  $field
 	 *
 	 * @return string
 	 */

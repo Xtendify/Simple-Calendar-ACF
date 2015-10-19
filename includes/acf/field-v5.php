@@ -7,6 +7,9 @@
  */
 namespace SimpleCalendar\Acf;
 
+use SimpleCalendar\Abstracts\Calendar;
+use SimpleCalendar\Assets;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -135,10 +138,14 @@ class Field_V5 extends \acf_field {
 
 			$calendar = simcal_get_calendar( $value );
 
-			if ( $calendar instanceof \SimpleCalendar\Abstracts\Calendar ) {
-				ob_start();
-				do_shortcode( '[calendar id="' . $value . '"]' );
-				$html = ob_get_clean();
+			if ( $calendar instanceof Calendar ) {
+
+				$view = $calendar->get_view();
+				$assets = new Assets();
+				$assets->load_styles( $view->styles( '.min' ) );
+				$assets->load_scripts( $view->scripts( '.min' ) );
+
+				$html = do_shortcode( '[calendar id="' . $value . '"]', false );
 			}
 		}
 

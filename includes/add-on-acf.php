@@ -9,11 +9,15 @@ namespace SimpleCalendar;
 
 /**
  * Simple Calendar ACF.
+ *
+ * @since 1.0.0
  */
 class Add_On_Acf {
 
 	/**
 	 * Load plugin.
+	 *
+	 * @since 1.0.0
 	 */
 	public function __construct() {
 		add_action( 'plugins_loaded', array( $this, 'init' ) );

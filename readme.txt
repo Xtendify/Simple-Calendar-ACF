@@ -1,5 +1,5 @@
 === Simple Calendar - ACF field ===
-Contributors: pderksen, nickyoung87, nekojira
+Contributors: moonstonemedia, pderksen, nickyoung87, nekojira
 Tags: simple-calendar, acf, advanced-custom-fields, google-calendar, google, calendar, calendars, event, events, field, custom-field, fields, custom-fields
 Requires at least: 4.0
 Tested up to: 4.3.1
@@ -20,14 +20,14 @@ To use this add on you need both Simple Calendar and Advanced Custom Fields inst
 
 This ACF field type is compatible with:
 * Simple Calendar 3.0.0 and up
-* ACF 5
+* ACF 5 / Pro
 * ACF 4
 
 == Installation ==
 
 You will need both Simple Calendar (3.0.0 and above) and Advanced Custom Fields (either 4.x, 5.x or Pro version) installed and active in your WordPress installation first or this plugin won't do anything. 
 
-Install Simple Calendar ACF by going to the plugins dashboard page and select 'Add New'. Look up for 'Simple Calendar ACF' and install and activate the plugin.
+Install Simple Calendar ACF by going to the plugins dashboard page and select 'Add New'. Look up for 'Simple Calendar ACF' by Moonstone and install and activate the plugin.
 
 Make sure you have created some calendar with Simple Calendar first, then create a new field with this field extension and Advanced Custom Fields. The new field will be available with a list of calendars to choose from. Use ACF templates to retrieve and display the chosen calendar with functions like `the_field( 'your_field_name' )'`.
 

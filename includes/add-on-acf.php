@@ -45,6 +45,14 @@ class Add_On_Acf {
 				include_once 'acf/field-v4.php';
 			} );
 
+		} else {
+
+			add_action( 'admin_notices', function() {
+				echo '<div class="error"><p>' .
+				     __( 'ACF add-on requires Simple Calendar plugin installed and activated.', 'simple-calendar-acf' ) .
+				     '</p></div>';
+			} );
+
 		}
 
 	}

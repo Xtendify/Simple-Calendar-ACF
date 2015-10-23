@@ -15,6 +15,14 @@ namespace SimpleCalendar;
 class Add_On_Acf {
 
 	/**
+	 * Plugin add-on name.
+	 *
+	 * @access public
+	 * @var string
+	 */
+	public $name = 'ACF';
+
+	/**
 	 * Load plugin.
 	 *
 	 * @since 1.0.0
@@ -47,9 +55,11 @@ class Add_On_Acf {
 
 		} else {
 
-			add_action( 'admin_notices', function() {
+			$name = $this->name;
+
+			add_action( 'admin_notices', function() use ( $name ) {
 				echo '<div class="error"><p>' .
-				     __( 'ACF add-on requires Simple Calendar plugin installed and activated.', 'simple-calendar-acf' ) .
+				     sprintf( __( 'The Simple Calendar %s add-on requires the Simple Calendar core plugin to be installed and activated.', 'simple-calendar-acf' ), $name ) .
 				     '</p></div>';
 			} );
 

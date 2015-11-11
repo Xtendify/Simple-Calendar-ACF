@@ -1,6 +1,6 @@
 # Simple Calendar - Advanced Custom Fields
 
-Add a [Simple Calendar](http://simplecalendar.io/) field to [Advanced Customs Fields](http://www.advancedcustomfields.com/) (ACF).
+Add a [Simple Calendar](https://simplecalendar.io) field to [Advanced Customs Fields](http://www.advancedcustomfields.com/) (ACF).
 
 The field will print the corresponding calendar chosen among those available using ACF. You can use then Advanced Custom Field template functions to print the corresponding field in your templates, such as `the_field( 'your_simple_calendar_field' );`.
 

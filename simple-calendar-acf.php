@@ -1,20 +1,17 @@
 <?php
 /**
- * Plugin Name: Simple Calendar - ACF field
- * Plugin URI:  https://wordpress.org/plugins/simple-calendar-acf/
- * Description: Use Simple Calendar with Advanced Custom Fields.
- *
+ * Plugin Name: Simple Calendar - Advanced Custom Fields
+ * Plugin URI:  https://simplecalendar.io
+ * Description: Add a Simple Calendar field to Advanced Customs Fields (ACF).
  * Version:     1.0.0
- *
  * Author:      Moonstone Media
- * Author URI:  http://moonstonemediagroup.com
- *
+ * Author URI:  https://simplecalendar.io
  * Text Domain: simple-calendar-acf
  * Domain Path: /languages/
  *
  * @package     SimpleCalendar/Extensions
  * @subpackage  ACF
- * @copyright   2014-2015 Moonstone Media/Phil Derksen. All rights reserved.
+ * @copyright   2015 Moonstone Media/Phil Derksen. All rights reserved.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

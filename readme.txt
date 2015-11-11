@@ -1,6 +1,6 @@
 === Simple Calendar - ACF field ===
 Contributors: moonstonemedia, pderksen, nickyoung87, nekojira
-Tags: simple-calendar, acf, advanced-custom-fields, google-calendar, google, calendar, calendars, event, events, field, custom-field, fields, custom-fields
+Tags: simple calendar, acf, advanced custom fields, google calendar, google, calendar, calendars, event, events, field, custom field, fields, custom fields
 Requires at least: 4.0
 Tested up to: 4.4
 Stable tag: 1.0.0

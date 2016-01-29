@@ -4,13 +4,18 @@ module.exports = function( grunt ) {
 
 	console.log( pkg.title + ' - ' + pkg.version );
 
-	// Files to include in a release.
-	var distFiles =  [
-		'includes/**',
-		'languages/**',
-		'license.txt',
-		'readme.txt',
-		'simple-calendar-acf.php'
+	// Files to include/exclude in a release.
+	var distFiles = [
+		'**',
+		'!assets/images/wp/**',
+		'!build/**',
+		'!node_modules/**',
+		'!.editorconfig',
+		'!.gitignore',
+		'!readme.md',
+		'!gruntfile.js',
+		'!package.json',
+		'!**/*~'
 	];
 
 	grunt.initConfig( {
@@ -19,9 +24,9 @@ module.exports = function( grunt ) {
 
 		checktextdomain: {
 			options: {
-				text_domain   : 'simple-calendar-acf',
+				text_domain: 'simple-calendar-acf',
 				correct_domain: false,
-				keywords      : [
+				keywords: [
 					'__:1,2d',
 					'_e:1,2d',
 					'_x:1,2c,3d',
@@ -35,15 +40,11 @@ module.exports = function( grunt ) {
 					'_n:1,2,4d',
 					'_nx:1,2,4c,5d',
 					'_n_noop:1,2,3d',
-					'_nx_noop:1,2,3c,4d',
-					' __ngettext:1,2,3d',
-					'__ngettext_noop:1,2,3d',
-					'_c:1,2d',
-					'_nc:1,2,4c,5d'
+					'_nx_noop:1,2,3c,4d'
 				]
 			},
-			files  : {
-				src   : [
+			files: {
+				src: [
 					'includes/**/*.php',
 					'simple-calendar-acf.php'
 				],
@@ -51,82 +52,38 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		makepot: {
-			target: {
-				options: {
-					cwd            : '',
-					domainPath     : '/languages',
-					potFilename    : 'simple-calendar-acf.pot',
-					mainFile       : 'simple-calendar-acf.php',
-					include        : [],
-					exclude        : [
-						'assets/',
-						'build/',
-						'languages/',
-						'node_modules',
-						'svn',
-						'tests',
-						'tmp'
-					],
-					potComments    : '',
-					potHeaders     : {
-						poedit                 : true,
-						'x-poedit-keywordslist': true,
-						'language'             : 'en_US',
-						'report-msgid-bugs-to' : 'https://github.com/moonstonemedia/simple-calendar-acf/issues',
-						'last-translator'      : 'Phil Derksen <pderksen@gmail.com>',
-						'language-Team'        : 'Phil Derksen <pderksen@gmail.com>'
-					},
-					type           : 'wp-plugin',
-					updateTimestamp: true,
-					updatePoFiles  : true,
-					processPot     : null
-				}
-			}
-		},
-
 		clean: {
-			build: [ 'build' ]
-		},
-
-		copy: {
-			main: {
-				expand: true,
-				src   : distFiles,
-				dest  : 'build/simple-calendar-acf'
-			}
+			main: [ 'build' ]
 		},
 
 		compress: {
 			main: {
 				options: {
-					mode   : 'zip',
+					mode: 'zip',
 					archive: './build/simple-calendar-acf-<%= pkg.version %>.zip'
 				},
-				expand : true,
-				src    : distFiles,
-				dest   : '/simple-calendar-acf'
+				expand: true,
+				src: distFiles,
+				dest: '/simple-calendar-acf'
 			}
 		},
 
-		wp_deploy: {
-			deploy: {
-				options: {
-					plugin_slug     : 'simple-calendar-acf',
-					plugin_main_file: 'simple-calendar-acf.php',
-					build_dir       : 'build/simple-calendar-acf',
-					max_buffer      : 400 * 1024
-				}
+		copy: {
+			main: {
+				expand: true,
+				src: distFiles,
+				dest: 'build/simple-calendar-acf'
 			}
 		}
 
 	} );
 
-	require( 'load-grunt-tasks' )(grunt);
+	require( 'load-grunt-tasks' )( grunt );
 
-	grunt.registerTask( 'localize', ['checktextdomain', 'makepot'] );
-	grunt.registerTask( 'build',    ['clean:build', 'copy', 'compress'] );
-	grunt.registerTask( 'deploy',   ['localize', 'build', 'wp_deploy'] );
+	grunt.registerTask( 'build', [ 'checktextdomain', 'clean', 'copy', 'compress' ] );
+
+	// TODO Add deploy task
+	//grunt.registerTask( 'deploy',	['build'] );
 
 	grunt.util.linefeed = '\n';
 };

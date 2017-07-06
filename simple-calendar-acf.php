@@ -4,7 +4,7 @@
  * Plugin URI:  https://simplecalendar.io
  * Description: Add a Simple Calendar field to Advanced Customs Fields (ACF).
  * Version:     1.0.0
- * Author:      Moonstone Media
+ * Author:      SimpleCalendar
  * Author URI:  https://simplecalendar.io
  * Text Domain: simple-calendar-acf
  * Domain Path: i18n/

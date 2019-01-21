@@ -5,6 +5,7 @@
  * @package    SimpleCalendar/Extensions
  * @subpackage ACF/v5
  */
+
 namespace SimpleCalendar\Acf;
 
 use SimpleCalendar\Abstracts\Calendar;
@@ -47,15 +48,15 @@ class Field_V5 extends \acf_field {
 
 		// Allow null option (to choose no calendar).
 		acf_render_field_setting( $field, array(
-			'label'			=> __( 'Allow Null?', 'simple-calendar-acf' ),
-			'instructions'	=> '',
-			'type'			=> 'radio',
-			'name'			=> 'allow_null',
-			'choices'		=> array(
+			'label'        => __( 'Allow Null?', 'simple-calendar-acf' ),
+			'instructions' => '',
+			'type'         => 'radio',
+			'name'         => 'allow_null',
+			'choices'      => array(
 				1 => __( 'Yes', 'simple-calendar-acf' ),
 				0 => __( 'No', 'simple-calendar-acf' ),
 			),
-			'layout'        =>	'horizontal',
+			'layout'       => 'horizontal',
 		) );
 
 	}
@@ -72,7 +73,7 @@ class Field_V5 extends \acf_field {
 			'id'              => $field['id'],
 			'class'           => $field['class'] . ' simcal-field-select-enhanced',
 			'name'            => $field['name'],
-			'data-allow_null' => $field['allow_null']
+			'data-allow_null' => $field['allow_null'],
 		);
 
 		// Special attributes.
@@ -84,18 +85,18 @@ class Field_V5 extends \acf_field {
 
 		echo '<select ' . acf_esc_attr( $atts ) . '>';
 
-			$calendars = simcal_get_calendars();
+		$calendars = simcal_get_calendars();
 
-			if ( $field['allow_null'] || empty( $calendars ) ) {
-				echo '<option value="null"></option>';
-			}
+		if ( $field['allow_null'] || empty( $calendars ) ) {
+			echo '<option value="null"></option>';
+		}
 
-			if ( ! empty( $calendars ) ) {
-				foreach ( $calendars as $id => $name ) {
-					$selected = selected( $id, $field['value'], false );
-					echo '<option value="' . strval( $id ) . '" ' . $selected . '>' . $name . '</option>' . "\n";
-				}
+		if ( ! empty( $calendars ) ) {
+			foreach ( $calendars as $id => $name ) {
+				$selected = selected( $id, $field['value'], false );
+				echo '<option value="' . strval( $id ) . '" ' . $selected . '>' . $name . '</option>' . "\n";
 			}
+		}
 
 		echo '</select>';
 
@@ -106,6 +107,10 @@ class Field_V5 extends \acf_field {
 	 */
 	public function input_admin_enqueue_scripts() {
 		wp_enqueue_script( 'simcal-admin-add-calendar' );
+		wp_localize_script( 'simcal-admin-add-calendar', 'simcal_admin', array(
+			'locale'   => get_locale(),
+			'text_dir' => is_rtl() ? 'rtl' : 'ltr',
+		) );
 	}
 
 	/**
@@ -140,7 +145,7 @@ class Field_V5 extends \acf_field {
 
 			if ( $calendar instanceof Calendar ) {
 
-				$view = $calendar->get_view();
+				$view   = $calendar->get_view();
 				$assets = new Assets();
 				$assets->load_styles( $view->styles( '.min' ) );
 				$assets->load_scripts( $view->scripts( '.min' ) );

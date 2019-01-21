@@ -4,7 +4,7 @@
  * Plugin URI:  https://wordpress.org/plugins/simple-calendar-acf/
  * Description: Use Simple Calendar with Advanced Custom Fields.
  *
- * Version:     1.0.0
+ * Version:     1.0.1
  *
  * Author:      Moonstone Media
  * Author URI:  http://moonstonemediagroup.com

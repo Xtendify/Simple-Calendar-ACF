@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@prettier/plugin-php@^0.20.1":
+"@prettier/plugin-php@0.20.1":
   version "0.20.1"
   resolved "https://registry.yarnpkg.com/@prettier/plugin-php/-/plugin-php-0.20.1.tgz#2761b2aaf9942f707062781709189c9b283eb7fa"
   integrity sha512-CFn+NH44jb0buvg8D/DvLjeetadmNBMRq3yrgL8I+tXioDZlhQ+eBLLRILPEBIQ6jBmOjzm/Q7Qin8KD7raiFw==
@@ -987,7 +987,7 @@ pkg-up@^3.1.0:
   dependencies:
     find-up "^3.0.0"
 
-prettier@^3.0.2:
+prettier@3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.0.2.tgz#78fcecd6d870551aa5547437cdae39d4701dca5b"
   integrity sha512-o2YR9qtniXvwEZlOKbveKfDQVyqxbEIWn48Z8m3ZJjBjcCmUy3xZGIv+7AkaeuaTr6yPXJjwv07ZWlsWbEy1rQ==

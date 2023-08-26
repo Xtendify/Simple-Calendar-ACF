@@ -11,8 +11,8 @@ namespace SimpleCalendar\Acf;
 use SimpleCalendar\Abstracts\Calendar;
 use SimpleCalendar\Assets;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if (!defined("ABSPATH")) {
+	exit();
 }
 
 /**
@@ -20,21 +20,21 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class Field_V5 extends \acf_field {
-
+class Field_V5 extends \acf_field
+{
 	/**
 	 * Setup field data.
 	 *
 	 * @since 1.0.0
 	 */
-	public function __construct() {
-
-		$this->name     = 'simple_calendar';
-		$this->label    = 'Simple Calendar';
-		$this->category = 'content';
-		$this->defaults = array(
-			'allow_null' => 1,
-		);
+	public function __construct()
+	{
+		$this->name = "simple_calendar";
+		$this->label = "Simple Calendar";
+		$this->category = "content";
+		$this->defaults = [
+			"allow_null" => 1,
+		];
 
 		parent::__construct();
 	}
@@ -44,21 +44,20 @@ class Field_V5 extends \acf_field {
 	 *
 	 * @param $field
 	 */
-	public function render_field_settings( $field ) {
-
+	public function render_field_settings($field)
+	{
 		// Allow null option (to choose no calendar).
-		acf_render_field_setting( $field, array(
-			'label'        => __( 'Allow Null?', 'simple-calendar-acf' ),
-			'instructions' => '',
-			'type'         => 'radio',
-			'name'         => 'allow_null',
-			'choices'      => array(
-				1 => __( 'Yes', 'simple-calendar-acf' ),
-				0 => __( 'No', 'simple-calendar-acf' ),
-			),
-			'layout'       => 'horizontal',
-		) );
-
+		acf_render_field_setting($field, [
+			"label" => __("Allow Null?", "simple-calendar-acf"),
+			"instructions" => "",
+			"type" => "radio",
+			"name" => "allow_null",
+			"choices" => [
+				1 => __("Yes", "simple-calendar-acf"),
+				0 => __("No", "simple-calendar-acf"),
+			],
+			"layout" => "horizontal",
+		]);
 	}
 
 	/**
@@ -66,51 +65,58 @@ class Field_V5 extends \acf_field {
 	 *
 	 * @param $field
 	 */
-	public function render_field( $field ) {
-
+	public function render_field($field)
+	{
 		// Attributes.
-		$atts = array(
-			'id'              => $field['id'],
-			'class'           => $field['class'] . ' simcal-field-select-enhanced',
-			'name'            => $field['name'],
-			'data-allow_null' => $field['allow_null'],
-		);
+		$atts = [
+			"id" => $field["id"],
+			"class" => $field["class"] . " simcal-field-select-enhanced",
+			"name" => $field["name"],
+			"data-allow_null" => $field["allow_null"],
+		];
 
 		// Special attributes.
-		foreach ( array( 'readonly', 'disabled' ) as $k ) {
-			if ( ! empty( $field[ $k ] ) ) {
-				$atts[ $k ] = $k;
+		foreach (["readonly", "disabled"] as $k) {
+			if (!empty($field[$k])) {
+				$atts[$k] = $k;
 			}
 		}
 
-		echo '<select ' . acf_esc_attr( $atts ) . '>';
+		echo "<select " . acf_esc_attr($atts) . ">";
 
 		$calendars = simcal_get_calendars();
 
-		if ( $field['allow_null'] || empty( $calendars ) ) {
+		if ($field["allow_null"] || empty($calendars)) {
 			echo '<option value="null"></option>';
 		}
 
-		if ( ! empty( $calendars ) ) {
-			foreach ( $calendars as $id => $name ) {
-				$selected = selected( $id, $field['value'], false );
-				echo '<option value="' . strval( $id ) . '" ' . $selected . '>' . $name . '</option>' . "\n";
+		if (!empty($calendars)) {
+			foreach ($calendars as $id => $name) {
+				$selected = selected($id, $field["value"], false);
+				echo '<option value="' .
+					strval($id) .
+					'" ' .
+					$selected .
+					">" .
+					$name .
+					"</option>" .
+					"\n";
 			}
 		}
 
-		echo '</select>';
-
+		echo "</select>";
 	}
 
 	/**
 	 * Enqueue field scripts.
 	 */
-	public function input_admin_enqueue_scripts() {
-		wp_enqueue_script( 'simcal-admin-add-calendar' );
-		wp_localize_script( 'simcal-admin-add-calendar', 'simcal_admin', array(
-			'locale'   => get_locale(),
-			'text_dir' => is_rtl() ? 'rtl' : 'ltr',
-		) );
+	public function input_admin_enqueue_scripts()
+	{
+		wp_enqueue_script("simcal-admin-add-calendar");
+		wp_localize_script("simcal-admin-add-calendar", "simcal_admin", [
+			"locale" => get_locale(),
+			"text_dir" => is_rtl() ? "rtl" : "ltr",
+		]);
 	}
 
 	/**
@@ -122,8 +128,9 @@ class Field_V5 extends \acf_field {
 	 *
 	 * @return string
 	 */
-	public function load_value( $value, $post_id, $field ) {
-		return is_numeric( $value ) ? intval( $value ) : '';
+	public function load_value($value, $post_id, $field)
+	{
+		return is_numeric($value) ? intval($value) : "";
 	}
 
 	/**
@@ -135,28 +142,25 @@ class Field_V5 extends \acf_field {
 	 *
 	 * @return string
 	 */
-	public function format_value( $value, $post_id, $field ) {
+	public function format_value($value, $post_id, $field)
+	{
+		$html = "";
 
-		$html = '';
+		if (is_numeric($value) && $value > 0) {
+			$calendar = simcal_get_calendar($value);
 
-		if ( is_numeric( $value ) && $value > 0 ) {
-
-			$calendar = simcal_get_calendar( $value );
-
-			if ( $calendar instanceof Calendar ) {
-
-				$view   = $calendar->get_view();
+			if ($calendar instanceof Calendar) {
+				$view = $calendar->get_view();
 				$assets = new Assets();
-				$assets->load_styles( $view->styles( '.min' ) );
-				$assets->load_scripts( $view->scripts( '.min' ) );
+				$assets->load_styles($view->styles(".min"));
+				$assets->load_scripts($view->scripts(".min"));
 
-				$html = do_shortcode( '[calendar id="' . $value . '"]', false );
+				$html = do_shortcode('[calendar id="' . $value . '"]', false);
 			}
 		}
 
 		return $html;
 	}
-
 }
 
 new Field_V5();

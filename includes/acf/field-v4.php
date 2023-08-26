@@ -135,6 +135,10 @@ class Field_V4 extends \acf_field {
 	 */
 	public function input_admin_enqueue_scripts() {
 		wp_enqueue_script( 'simcal-admin-add-calendar' );
+		wp_localize_script( 'simcal-admin-add-calendar', 'simcal_admin', array(
+			'locale'   => get_locale(),
+			'text_dir' => is_rtl() ? 'rtl' : 'ltr',
+		) );
 	}
 
 	/**

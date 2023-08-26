@@ -1,8 +1,8 @@
 {
-  "name": "Simple-Calendar-ACF",
+  "name": "simple-calendar-acf",
   "title": "Simple Calendar ACF field",
   "description": "Use Simple Calendar with Advanced Custom Fields.",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "license": "GPL-2.0+",
   "homepage": "https://simplecalendar.io",
   "repository": {

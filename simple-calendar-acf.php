@@ -1,11 +1,14 @@
 <?php
 /**
- * Plugin Name: Simple Calendar - Advanced Custom Fields
- * Plugin URI:  https://simplecalendar.io
- * Description: Add a Simple Calendar field to Advanced Customs Fields (ACF).
- * Version:     1.0.0
- * Author:      SimpleCalendar
+ * Plugin Name: Simple Calendar - ACF field
+ * Plugin URI:  https://wordpress.org/plugins/simple-calendar-acf/
+ * Description: Use Simple Calendar with Advanced Custom Fields.
+ *
+ * Version:     1.0.2
+ *
+ * Author:      Simple Calendar
  * Author URI:  https://simplecalendar.io
+ *
  * Text Domain: simple-calendar-acf
  * Domain Path: i18n/
  *

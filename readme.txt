@@ -2,8 +2,8 @@
 Contributors: simplecalendar, sureswiftcapital, pderksen, nickyoung87, nekojira
 Tags: simple calendar, acf, advanced custom fields, google calendar, google, calendar, calendars, event, events, field, custom field, fields, custom fields
 Requires at least: 4.0
-Tested up to: 4.4
-Stable tag: 1.0.0
+Tested up to: 5.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,14 +30,17 @@ To use this add-on you need both Simple Calendar and Advanced Custom Fields inst
 == Screenshots ==
 
 1. ACF Simple Calendar field type.
-2. The field being rendered in a meta box, with a calender selection.  
+2. The field being rendered in a meta box, with a calender selection.
 
 == Changelog ==
 
-= 1.0.1 - TODO =
+= 1.0.2 =
 
 * Tweak: Translations moved from .po/.mo files to official wordpress.org translation packs.
 
-= 1.0.0 - November 11, 2015 =
+= 1.0.1 - January 21, 2018 =
+* Update: Modify contributors.
+* Fix: JS localization issue causing JS console error in admin.
 
+= 1.0.0 - November 11, 2015 =
 * Initial release.

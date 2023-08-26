@@ -15,11 +15,11 @@
  * @copyright   2016 Moonstone Media/Phil Derksen. All rights reserved.
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-} elseif ( version_compare( PHP_VERSION, '5.3.0' ) !== - 1 ) {
-	if ( ! defined( 'SIMPLE_CALENDAR_ACF_MAIN_FILE' ) ) {
-		define( 'SIMPLE_CALENDAR_ACF_MAIN_FILE', __FILE__ );
+if (!defined("ABSPATH")) {
+	exit();
+} elseif (version_compare(PHP_VERSION, "5.3.0") !== -1) {
+	if (!defined("SIMPLE_CALENDAR_ACF_MAIN_FILE")) {
+		define("SIMPLE_CALENDAR_ACF_MAIN_FILE", __FILE__);
 	}
-	include_once 'includes/add-on-acf.php';
+	include_once "includes/add-on-acf.php";
 }

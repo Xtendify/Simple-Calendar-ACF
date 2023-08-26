@@ -1,5 +1,5 @@
 === Simple Calendar - Advanced Custom Fields ===
-Contributors: simplecalendar, sureswiftcapital, pderksen, nickyoung87, nekojira
+Contributors: simplecalendar, pderksen, nickyoung87, nekojira
 Tags: simple calendar, acf, advanced custom fields, google calendar, google, calendar, calendars, event, events, field, custom field, fields, custom fields
 Requires at least: 4.0
 Tested up to: 5.0

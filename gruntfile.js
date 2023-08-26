@@ -6,16 +6,11 @@ module.exports = function( grunt ) {
 
 	// Files to include/exclude in a release.
 	var distFiles = [
-		'**',
-		'!assets/images/wp/**',
-		'!build/**',
-		'!node_modules/**',
-		'!.editorconfig',
-		'!.gitignore',
-		'!readme.md',
-		'!gruntfile.js',
-		'!package.json',
-		'!**/*~'
+		'includes/**',
+		'i18n/**',
+		'simple-calendar-acf.php',
+		'readme.txt',
+		'license.txt'
 	];
 
 	grunt.initConfig( {

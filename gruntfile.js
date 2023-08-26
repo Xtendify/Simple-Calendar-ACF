@@ -82,8 +82,5 @@ module.exports = function( grunt ) {
 
 	grunt.registerTask( 'build', [ 'checktextdomain', 'clean', 'copy', 'compress' ] );
 
-	// TODO Add deploy task
-	//grunt.registerTask( 'deploy',	['build'] );
-
 	grunt.util.linefeed = '\n';
 };
